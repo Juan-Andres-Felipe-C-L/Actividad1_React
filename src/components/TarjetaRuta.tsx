@@ -15,10 +15,10 @@ export function TarjetaRuta({ruta}: RutaProps) {
     
     return (
         <article>
-            <h3>Nombre ruta:{ruta.nombre}</h3>
+            <h3>Nombre ruta: {ruta.nombre}</h3>
             <p>-Municipio: {ruta.municipio}.</p>
             <p>-Duración: {ruta.duracionHoras} horas.</p>
-            <p>-Precio: {precio}</p>
+            <p>-Precio: {precio} COP</p>
             <p>-Dificultad: {dificultad[ruta.dificultad]}</p>
             <p>-Info. adicional: {ruta.incluyeTransporte && <strong>Incluye transporte</strong>} · {ruta.duracionHoras < 5 ? "Ruta corta" : "Jornada completa"}</p>
         </article>

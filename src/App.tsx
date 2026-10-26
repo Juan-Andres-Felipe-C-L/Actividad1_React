@@ -1,14 +1,17 @@
 import './App.css'
-import type { Ruta } from './datos/rutas';
+import { rutas, type Ruta } from './datos/rutas';
 import { TarjetaRuta } from './components/TarjetaRuta';
 
-function App() {
+function filtrarPorDificultad(rutas: Ruta[]) {
 
-    interface ListaRutasProps {
+}
+
+
+interface ListaRutasProps {
         rutas: Ruta[];
-    }
-    
-    function ListaRutas({ rutas }: ListaRutasProps) {
+}
+
+function ListaRutas({ rutas }: ListaRutasProps) {
 
         if (rutas.length === 0) {
             return <p>No hay rutas con esos criterios.</p>;
@@ -21,7 +24,12 @@ function App() {
                 ))}
             </section>
         );
-    }
+}
+    
+function App() {
+
+    return <ListaRutas rutas = {rutas}/>
+    
 }
 
 export default App
