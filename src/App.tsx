@@ -1,15 +1,30 @@
 import './App.css'
-import { rutas, type Ruta } from './datos/rutas';
+import { rutas, type Ruta, type Dificultad } from './datos/rutas';
 import { TarjetaRuta } from './components/TarjetaRuta';
-
-function filtrarPorDificultad(rutas: Ruta[]) {
-
-}
-
 
 interface ListaRutasProps {
         rutas: Ruta[];
 }
+
+type Criterio = "precio" | "duracion"
+type Order = "asc" | "des"
+
+function filtrarPorDificultad(rutas: Ruta[], dificultad: Dificultad) {
+    if(dificultad === "todas") return rutas
+
+    return rutas.filter((ruta) => ruta.dificultad === dificultad)
+}
+
+function ordenarRutas(rutas: Ruta[], criterio: Criterio, order: Order = "asc") {
+    const campo = criterio === "precio" ? "precio" : "duracionHoras"
+    return rutas.toSorted((a, b) =>
+        order === "asc"
+      ? a[campo] - b[campo]
+      : b[campo] - a[campo]
+    )
+
+}
+
 
 function ListaRutas({ rutas }: ListaRutasProps) {
 

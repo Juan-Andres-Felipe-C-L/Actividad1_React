@@ -1,4 +1,4 @@
-export type Dificultad = "baja" | "media" | "alta";
+export type Dificultad = "baja" | "media" | "alta" | "todas";
 
 export interface Ruta {
   id: number;
